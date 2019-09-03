@@ -18,9 +18,8 @@ public class EmployeeController {
         this.service = service;
     }
 
-
     @GetMapping("/{id}")
-    public ResponseEntity<Employee> getEmployee(@PathVariable("id") String id) {
+    public ResponseEntity<Employee> getEmployee(@PathVariable("id") Integer id) {
         final var optionalEmployee = service.get(id);
         return optionalEmployee.map(ResponseEntity::ok)
                 .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));

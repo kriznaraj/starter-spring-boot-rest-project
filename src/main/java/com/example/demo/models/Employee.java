@@ -7,6 +7,6 @@ import javax.persistence.*;
 public class Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    public String id;
+    public Integer id;
 }
 

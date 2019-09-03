@@ -14,7 +14,7 @@ public class EmployeeService {
         this.employeeRepository = employeeRepository;
     }
 
-    public Optional<Employee> get(String id) {
+    public Optional<Employee> get(Integer id) {
         return employeeRepository.findById(id);
     }
 }

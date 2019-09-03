@@ -31,7 +31,7 @@ public class EmployeeControllerTest {
 
     @Test
     public void getEmployee() {
-        final String id = "id";
+        final Integer id = 1;
         final var returnedEmployee = new Employee();
         returnedEmployee.id = id;
         when(this.service.get(id)).thenReturn(Optional.of(returnedEmployee));

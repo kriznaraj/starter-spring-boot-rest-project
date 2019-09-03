@@ -38,7 +38,7 @@ public class EmployeeControllerIntegrationTest {
 
     @Test
     public void createEmployee() throws Exception {
-        final String id = "id";
+        final Integer id = 1;
         final var returnedEmployee = new Employee();
         returnedEmployee.id = id;
         when(this.service.get(id)).thenReturn(Optional.of(returnedEmployee));

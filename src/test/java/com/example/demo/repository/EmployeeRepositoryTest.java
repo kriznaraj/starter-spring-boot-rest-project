@@ -18,7 +18,7 @@ public class EmployeeRepositoryTest {
 
     @Test
     public void shouldGetEmployee() {
-        final String id = "id";
+        final Integer id = 1;
 
         final var optionalEmployee = employeeRepository.findById(id);
 

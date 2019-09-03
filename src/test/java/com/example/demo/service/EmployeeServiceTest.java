@@ -29,7 +29,7 @@ public class EmployeeServiceTest {
 
     @Test
     public void shouldGetEmployee() {
-        final String id = "id";
+        final Integer id = 1;
         final var employee = new Employee();
         employee.id = id;
         when(this.employeeRepository.findById(id)).thenReturn(Optional.of(employee));
