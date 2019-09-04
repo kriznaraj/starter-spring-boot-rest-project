@@ -36,7 +36,7 @@ public class EmployeeControllerTest {
         returnedEmployee.id = id;
         when(this.service.get(id)).thenReturn(Optional.of(returnedEmployee));
 
-        final ResponseEntity<Employee> result = this.controller.getEmployee(id);
+        final ResponseEntity<Employee> result = this.controller.findEmployee(id);
 
         assertThat(result.getBody(), is(returnedEmployee));
     }

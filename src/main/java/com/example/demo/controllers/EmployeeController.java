@@ -4,10 +4,7 @@ import com.example.demo.models.Employee;
 import com.example.demo.service.EmployeeService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("employees")
@@ -19,9 +16,15 @@ public class EmployeeController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Employee> getEmployee(@PathVariable("id") Integer id) {
+    public ResponseEntity<Employee> findEmployee(@PathVariable("id") Integer id) {
         final var optionalEmployee = service.get(id);
         return optionalEmployee.map(ResponseEntity::ok)
                 .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
+    }
+
+    @PostMapping()
+    public ResponseEntity<String> createEmployee(@RequestBody Employee employee) {
+        var result = service.insert(employee);
+        return ResponseEntity.ok(result.id.toString());
     }
 }
